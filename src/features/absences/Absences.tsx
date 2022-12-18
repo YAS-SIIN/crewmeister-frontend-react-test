@@ -17,16 +17,23 @@ import { getAbsencesList, getMembersList } from './absencesSlice';
 export function Absences() {
 
   const dispatch = useAppDispatch();
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [vacationType, setVacationType] = useState('');
 
   const filter = () => {
-    console.error('test filter');
+  
+    const _filData = new filData;
+    _filData.startDate=startDate;
+    _filData.endDate=endDate;
+    _filData.type=vacationType;
+
+    dispatch(getAbsencesList(_filData));
   };
 
   useEffect(() => {
     
-   const _filData = new filData;
-   _filData.type="sickness";
-   dispatch(getAbsencesList(_filData));
+   dispatch(getAbsencesList());
   }, [dispatch]);
 
   const {
@@ -45,15 +52,15 @@ export function Absences() {
       <Row>
         <Col>
         <label>Start Date :</label>
-          <Form.Control type="date" id="StartDate" placeholder="Start Date" />
+          <Form.Control type="date" id="StartDate" placeholder="Start Date" onChange={(e) => {setStartDate(e.target.value); }}/>
         </Col>
         <Col>
         <label>End Date :</label>
-          <Form.Control type="date" id="EndDate" placeholder="End Date" />
+          <Form.Control type="date" id="EndDate" placeholder="End Date" onChange={(e) => {setEndDate(e.target.value); }}/>
         </Col>
         <Col>
         <label>Vacation Type :</label>
-        <Form.Select aria-label="Vacation Type">
+        <Form.Select aria-label="Vacation Type" onChange={(e) => {setVacationType(e.target.value); }}>
         <option value="all">All</option>
         <option value="vacation">vacation</option>
         <option value="sickness">sickness</option>

@@ -42,16 +42,19 @@ app.get("/api/hello", (req, res) => {
  */
 app.post('/api/getAbsences', (req, res) => {
   console.log('body is ',req.body);
-    var databody = req.body;
+    var databody:filData = req.body;
  
     data.absences().then((datalist) => {
-      if (databody.stardate !== '' && databody.stardate !== undefined) {
-        datalist = datalist.filter(absence => absence.stardate === databody.stardate);
+      if (!(databody.startDate === '')) {
+        console.log('start date filter');
+        datalist = datalist.filter(absence => absence.startDate >= databody.startDate);
       }
-      if (databody.endDate !== '' && databody.endDate !== undefined) {
-        datalist = datalist.filter(absence => absence.endDate === databody.endDate);
+      if (!(databody.endDate === '')) {
+        console.log('end date filter');
+        datalist = datalist.filter(absence => absence.endDate <= databody.endDate);
       }
-      if (databody.type !== '' && databody.type !== undefined) {
+      if (!(databody.type === '' || databody.type === 'all')) {
+        console.log('vacation type filter');
         datalist = datalist.filter(absence => absence.type === databody.type);
       }
         res.send(datalist);
@@ -64,6 +67,7 @@ app.post('/api/getAbsences', (req, res) => {
  * @returns members list
  */
 app.post('/api/getMembers', (req, res) => {
+  console.log('body is ',req.body);
   data.members().then((datalist) => {
       res.send(datalist);
   });
