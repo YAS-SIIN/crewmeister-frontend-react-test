@@ -2,16 +2,15 @@ import React from 'react'
 import { Alert } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table'; 
 import { Absence } from '../utils/models';
-import Paging from './Paging';
 
 const AbsencesTable = (data: any) => {
 debugger
   return (  
     <>
-    <Table className="table">
+    <Table className="table" striped bordered hover>
         <thead>
             <tr>
-                <th scope='col'>ID</th>
+                <th scope='col'>ID</th> 
                 <th scope='col'>admitterNote</th> 
 
             </tr>

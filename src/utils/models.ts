@@ -1,4 +1,4 @@
-export type Absence = {
+export class Absence {
   admitterId: number;
   admitterNote: string;
   confirmedAt: Date;
@@ -12,10 +12,14 @@ export type Absence = {
   type: string;
   userId: number;
 };
-export type Member = {
+export class Member {
   crewId: number;
   id: number;
   image: string;
   name: string;
   userId: number;
+};
+export class filData {
+  filDate!: Date;
+  filtype!: string; 
 };

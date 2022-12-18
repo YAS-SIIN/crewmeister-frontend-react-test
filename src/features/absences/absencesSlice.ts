@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import absencesService from "../../services/absencesService";
-import { Absence } from '../../utils/models'; 
-
+import { filData } from "../../utils/models";
+  
 const initialState = {
   absences: [],
   absencesContainer: [],
@@ -9,6 +9,15 @@ const initialState = {
   error: false,
 };
 export const getAbsencesList = createAsyncThunk("getAbsences", async () => {
+  try { 
+    const res = await absencesService.getAbsences();
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+export const getMembersList = createAsyncThunk("getMembers", async () => {
   try { 
     const res = await absencesService.getAbsences();
     return res;
