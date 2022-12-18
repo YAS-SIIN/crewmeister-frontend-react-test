@@ -1,5 +1,4 @@
-
-import { Console } from 'console';
+ 
 import React, { useEffect, useState } from 'react';  
 import { Alert, Spinner } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
@@ -7,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import DataTable from 'react-data-table-component';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
  
 import AbsencesTable from '../../components/AbsencesTable';
@@ -32,6 +32,17 @@ export function Absences() {
 
     dispatch(getAbsencesList(_filData));
   };
+
+  const columns = [
+    { name: 'userId', selector: row => row.userId },
+    { name: 'type', selector: row => row.type },
+    { name: 'type', selector: row => row.type },
+    { name: 'startDate', selector: row => row.startDate },
+    { name: 'startDate', selector: row => row.startDate },
+    { name: 'endDate', selector: row => row.endDate },
+    { name: 'memberNote', selector: row => row.memberNote },
+    { name: 'admitterNote', selector: row => row.admitterNote }, 
+];
 
   useEffect(() => {
    
@@ -100,8 +111,8 @@ export function Absences() {
       ) : (
         <> 
         <label>Total absences is : {absences.length}</label>
-        <AbsencesTable data={absences}></AbsencesTable>  
-       
+        {/* <AbsencesTable data={absences}></AbsencesTable>   */}
+        <DataTable    columns={columns}  data={absences} pagination  />
         </>
         //<label>Data is test {absences.length} </label>
       )} 
