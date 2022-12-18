@@ -1,4 +1,5 @@
 
+import { Console } from 'console';
 import React, { useEffect, useState } from 'react';  
 import { Alert, Spinner } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
@@ -15,6 +16,10 @@ import { getAbsencesList, getMembersList } from './absencesSlice';
 export function Absences() {
 
   const dispatch = useAppDispatch();
+
+  const filter = () => {
+    console.error('test filter');
+  };
 
   useEffect(() => {
     
@@ -37,9 +42,15 @@ export function Absences() {
       <Form>
       <Row>
         <Col>
-          <Form.Control type="date" placeholder="Date" />
+        <label>Start Date :</label>
+          <Form.Control type="date" id="StartDate" placeholder="Start Date" />
         </Col>
         <Col>
+        <label>End Date :</label>
+          <Form.Control type="date" id="EndDate" placeholder="End Date" />
+        </Col>
+        <Col>
+        <label>Vacation Type :</label>
         <Form.Select aria-label="Vacation Type">
         <option value="all">All</option>
         <option value="vacation">vacation</option>
@@ -52,7 +63,7 @@ export function Absences() {
         <Col> 
         </Col>
         <Col>
-        <Button variant="primary">Filter</Button>
+        <Button variant="primary" onClick={filter}>Filter</Button>
         </Col>
         <Col>
  

@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import absencesService from "../../services/absencesService";
-import { filData } from "../../utils/models";
+import { Absence } from "../../utils/models";
+ 
   
 const initialState = {
   absences: [],
@@ -29,11 +30,9 @@ export const getMembersList = createAsyncThunk("getMembers", async () => {
 const absencesSlice = createSlice({
   name: "absencesList",
   initialState,
-  reducers: {},
-
+  reducers: {}, 
   extraReducers: (builder) => {
-    builder.addCase(getAbsencesList.pending, (state, action) => {
-      debugger
+    builder.addCase(getAbsencesList.pending, (state, action) => { 
       state.loading = true;
     });
     builder.addCase(getAbsencesList.fulfilled, (state, action) => {
@@ -49,6 +48,7 @@ const absencesSlice = createSlice({
   },
 });
 
-export const {} = absencesSlice.actions;
+export const { filteredAbsences, filteredAbsencesByDate } =
+  absencesSlice.actions;
 
 export default absencesSlice.reducer;

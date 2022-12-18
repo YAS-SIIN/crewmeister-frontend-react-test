@@ -14,6 +14,16 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+
+### `yarn server`
+
+Runs the REST Api server.\
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+
+For example you can test this link 
+[http://localhost:8080/api/getAbsences](http://localhost:8080/api/getAbsences)
+
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\

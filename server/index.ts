@@ -50,14 +50,7 @@ app.get('/api/getMember/:id', (req, res) => {
         } 
     });
 });
-
-//Get absences list
-app.get('/api/getAbsences', (req, res) => {
-    data.absences().then((datalist) => {
-        res.send(datalist);
-    });
-});
-
+ 
 //Get absence
 app.get('/api/getAbsence/:id', (req, res) => {
   data.absences().then((datalist) => {
