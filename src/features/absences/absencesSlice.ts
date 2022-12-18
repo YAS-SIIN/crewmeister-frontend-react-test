@@ -25,21 +25,6 @@ export const getAbsencesList = createAsyncThunk("getAbsences", async (_filData: 
 });
 
 /**
- * Thunk to get member in rudux
- * @param id - id of member
- * @returns member 
- */
-export const getMembersList = createAsyncThunk("getMembers", async (id: Number) => {
-  try { 
-    const res = await absencesService.getMember(id);
-    return res;
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-
-/**
  * Redux Slice using Redux Toolkit - Toolkit make it easy :) 
  * @returns member 
  */
@@ -51,14 +36,12 @@ const absencesSlice = createSlice({
     builder.addCase(getAbsencesList.pending, (state, action) => { 
       state.loading = true;
     });
-    builder.addCase(getAbsencesList.fulfilled, (state, action) => {
-      debugger
+    builder.addCase(getAbsencesList.fulfilled, (state, action) => { 
       state.loading = false;
       state.absencesContainer = action.payload;
       state.absences = action.payload;
     });
-    builder.addCase(getAbsencesList.rejected, (state, action) => {
-      debugger 
+    builder.addCase(getAbsencesList.rejected, (state, action) => { 
       state.error = true;
     });
   },

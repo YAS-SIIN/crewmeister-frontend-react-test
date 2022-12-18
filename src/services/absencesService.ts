@@ -20,6 +20,21 @@ const getAbsences = async (_filData: filData = new filData) => {
 };
   
 /**
+ * call getAbsences method from service to retrieve list of absences 
+ * @returns list of absences 
+ */
+const getMembers = async () => {
+  const response = await fetch("http://localhost:8080/Api/getMembers", {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  });
+    return response.json(); 
+};
+  
+/**
  * call getMember method from service to retrieve member
  * @param id - id of member
  * @returns member 
@@ -30,7 +45,7 @@ const getMember = async (id: Number) => {
 };
  
 const absencesService = {
-  getAbsences, getMember
+  getAbsences, getMember, getMembers
 };
 
 export default absencesService;

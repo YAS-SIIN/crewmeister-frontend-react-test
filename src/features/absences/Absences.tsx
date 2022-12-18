@@ -10,8 +10,9 @@ import Row from 'react-bootstrap/Row';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
  
 import AbsencesTable from '../../components/AbsencesTable';
-import { filData } from '../../utils/models';
-import { getAbsencesList, getMembersList } from './absencesSlice';
+import absencesService from '../../services/absencesService';
+import { filData, Member } from '../../utils/models';
+import { getAbsencesList } from './absencesSlice';
 
 
 export function Absences() {
@@ -20,6 +21,7 @@ export function Absences() {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [vacationType, setVacationType] = useState('');
+  const [members, setMembers] = useState([]);
 
   const filter = () => {
   
@@ -32,7 +34,7 @@ export function Absences() {
   };
 
   useEffect(() => {
-    
+   
    dispatch(getAbsencesList());
   }, [dispatch]);
 
@@ -44,6 +46,10 @@ export function Absences() {
   
   return (
      <div>
+      <Alert variant="warning">
+      <h5>Crewmeister Challange test - programmer : Yasin Asadnezhad</h5>
+        </Alert>
+
       <Card>
       <Card.Header>Filter <i></i></Card.Header>
       <Card.Body>

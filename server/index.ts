@@ -1,8 +1,7 @@
 
 import express from "express";
 import { json } from "stream/consumers";
-import { filData } from "./models/models";
- 
+
 const PORT = 8080;
   
 const app = express();
@@ -41,22 +40,24 @@ app.get("/api/hello", (req, res) => {
  * @returns absences list
  */
 app.post('/api/getAbsences', (req, res) => {
-  console.log('body is ',req.body);
-    var databody:filData = req.body;
+  console.log('getAbsences - body is ',req.body);
+    var databody = req.body;
  
     data.absences().then((datalist) => {
-      if (!(databody.startDate === '')) {
+    if (databody !== undefined) {
+      if (!(databody.startDate === '' || databody.startDate === undefined)) {
         console.log('start date filter');
         datalist = datalist.filter(absence => absence.startDate >= databody.startDate);
       }
-      if (!(databody.endDate === '')) {
+      if (!(databody.endDate === '' || databody.endDate === undefined)) {
         console.log('end date filter');
         datalist = datalist.filter(absence => absence.endDate <= databody.endDate);
       }
-      if (!(databody.type === '' || databody.type === 'all')) {
+      if (!(databody.type === '' || databody.type === 'all' || databody.type === undefined)) {
         console.log('vacation type filter');
         datalist = datalist.filter(absence => absence.type === databody.type);
       }
+    }
         res.send(datalist);
     });
 });
@@ -67,7 +68,7 @@ app.post('/api/getAbsences', (req, res) => {
  * @returns members list
  */
 app.post('/api/getMembers', (req, res) => {
-  console.log('body is ',req.body);
+  console.log('getMembers - body is ',req.body);
   data.members().then((datalist) => {
       res.send(datalist);
   });
@@ -77,9 +78,11 @@ app.post('/api/getMembers', (req, res) => {
 /**
  * service method to retrieve a record of absence
  * @param id - id of absence
+ * @type Number
  * @returns absence
  */
 app.get('/api/getAbsence/:id', (req, res) => {
+  console.log('getAbsence - params is ',req.params.id);
   data.absences().then((datalist) => {
       const item = datalist.find(absence => absence.id === parseInt(req.params.id));
       if(item){
@@ -92,9 +95,11 @@ app.get('/api/getAbsence/:id', (req, res) => {
 /**
  * service method to retrieve a record of member
  * @param id - id of member
+ * @type Number
  * @returns member
  */
 app.get('/api/getMember/:id', (req, res) => {
+  console.log('getMember - params is ',req.params.id);
     data.members().then((datalist) => {
         const item = datalist.find(member => member.userId === parseInt(req.params.id));
         if(item){

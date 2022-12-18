@@ -1,14 +1,15 @@
 import React from 'react'
 import { Alert } from 'react-bootstrap';
-import Table from 'react-bootstrap/Table'; 
+import Table from 'react-bootstrap/Table';  
 import { Absence } from '../utils/models';
 
+const AbsencesTable = (data: any) => {
+  
 /**
  * method to get period time
  * @returns date and time 
  */
 const getPeriod = (startDate: string, endDate: string) => {
-  debugger
     // To set two dates to two variables
     var date1 = new Date(startDate);
     var date2 = new Date(endDate);
@@ -21,10 +22,7 @@ const getPeriod = (startDate: string, endDate: string) => {
   return `${Difference_In_Days + 1} Day`;
 }
 
-const AbsencesTable = (data: any) => {
   
-
-debugger
   return (  
     <>
     <Table className="table" striped bordered hover>
@@ -49,7 +47,7 @@ debugger
         data.data.map((item: Absence) => (
                 <tr>
                     <td>{item.id} </td>
-                    <td>{item.userId} </td>
+                    <td>{getMember(item.userId)} </td>
                     <td>{item.type} </td>
                     <td>{getPeriod(item.startDate, item.endDate)} </td>
                     <td>{item.memberNote} </td>
@@ -59,8 +57,7 @@ debugger
             ))
             )}
         </tbody>
-    </Table>
-
+    </Table> 
     </>
   ) 
 }
