@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import absencesService from "../../services/absencesService";
-import { Absence } from "../../utils/models";
+import { Absence, filData } from "../../utils/models";
  
   
 const initialState = {
@@ -9,24 +9,40 @@ const initialState = {
   loading: false,
   error: false,
 };
-export const getAbsencesList = createAsyncThunk("getAbsences", async () => {
+ 
+/**
+ * Thunk to get absences list in rudux
+ * @param _filData - object of filter data : {stardate, enddate, type}
+ * @returns list of absences 
+ */
+export const getAbsencesList = createAsyncThunk("getAbsences", async (_filData: filData) => {
   try { 
-    const res = await absencesService.getAbsences();
+    const res = await absencesService.getAbsences(_filData);
     return res;
   } catch (error) {
     console.error(error);
   }
 });
 
-export const getMembersList = createAsyncThunk("getMembers", async () => {
+/**
+ * Thunk to get member in rudux
+ * @param id - id of member
+ * @returns member 
+ */
+export const getMembersList = createAsyncThunk("getMembers", async (id: Number) => {
   try { 
-    const res = await absencesService.getAbsences();
+    const res = await absencesService.getMember(id);
     return res;
   } catch (error) {
     console.error(error);
   }
 });
 
+
+/**
+ * Redux Slice using Redux Toolkit - Toolkit make it easy :) 
+ * @returns member 
+ */
 const absencesSlice = createSlice({
   name: "absencesList",
   initialState,
@@ -48,7 +64,7 @@ const absencesSlice = createSlice({
   },
 });
 
-export const { filteredAbsences, filteredAbsencesByDate } =
+export const { } =
   absencesSlice.actions;
 
 export default absencesSlice.reducer;

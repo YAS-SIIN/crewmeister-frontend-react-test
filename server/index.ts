@@ -1,7 +1,6 @@
 
 import express from "express";
-//import { members, absences } from "./api/api";
-
+ 
 const PORT = 8080;
   
 const app = express();
@@ -26,22 +25,58 @@ app.use(function(req, res, next) {
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
-
-
-
-//Test Rest API
+ 
+/**
+ * service method to retrieve test data
+ * @returns hello
+ */
 app.get("/api/hello", (req, res) => {
   res.send({ message: "Hello" });
 });
  
-//Get members list
-app.get('/api/getMembers', (req, res) => {
-    data.members().then((datalist) => {
+
+/**
+ * service method to retrieve absences data
+ * @returns absences list
+ */
+app.post('/api/getAbsences', (req, res) => {
+    data.absences().then((datalist) => {
         res.send(datalist);
     });
 });
 
-//Get member
+
+/**
+ * service method to retrieve members data
+ * @returns members list
+ */
+app.post('/api/getMembers', (req, res) => {
+  data.members().then((datalist) => {
+      res.send(datalist);
+  });
+});
+
+
+/**
+ * service method to retrieve a record of absence
+ * @param id - id of absence
+ * @returns absence
+ */
+app.get('/api/getAbsence/:id', (req, res) => {
+  data.absences().then((datalist) => {
+      const item = datalist.find(absence => absence.id === parseInt(req.params.id));
+      if(item){
+          res.send(item);
+      } 
+  });
+});
+
+
+/**
+ * service method to retrieve a record of member
+ * @param id - id of member
+ * @returns member
+ */
 app.get('/api/getMember/:id', (req, res) => {
     data.members().then((datalist) => {
         const item = datalist.find(member => member.userId === parseInt(req.params.id));
@@ -51,12 +86,3 @@ app.get('/api/getMember/:id', (req, res) => {
     });
 });
  
-//Get absence
-app.get('/api/getAbsence/:id', (req, res) => {
-  data.absences().then((datalist) => {
-      const item = datalist.find(absence => absence.id === parseInt(req.params.id));
-      if(item){
-          res.send(item);
-      } 
-  });
-});

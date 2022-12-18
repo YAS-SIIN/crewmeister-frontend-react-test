@@ -19,7 +19,8 @@ export class Member {
   name: string;
   userId: number;
 };
-export class filData {
-  filDate!: Date;
+export class filData { 
+  startDate!: string;
+  string!: string;
   filtype!: string; 
 };
