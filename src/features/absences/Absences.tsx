@@ -23,6 +23,28 @@ export function Absences() {
   const [vacationType, setVacationType] = useState('');
   const [members, setMembers] = useState([]);
 
+  /**
+ * method to get period time
+ * @returns date and time 
+ */
+const getPeriod = (startDate: string, endDate: string) => {
+  // To set two dates to two variables
+  var date1 = new Date(startDate);
+  var date2 = new Date(endDate);
+
+// To calculate the time difference of two dates
+var Difference_In_Time = date2.getTime() - date1.getTime();
+
+// To calculate the no. of days between two dates
+var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+return `${Difference_In_Days + 1} Day`;
+}
+
+
+  /**
+ * method to filter data
+ * @returns filtered list
+ */
   const filter = () => {
   
     const _filData = new filData;
@@ -34,16 +56,14 @@ export function Absences() {
   };
 
   const columns = [
-    { name: 'userId', selector: row => row.userId },
-    { name: 'type', selector: row => row.type },
-    { name: 'type', selector: row => row.type },
-    { name: 'startDate', selector: row => row.startDate },
-    { name: 'startDate', selector: row => row.startDate },
-    { name: 'endDate', selector: row => row.endDate },
-    { name: 'memberNote', selector: row => row.memberNote },
-    { name: 'admitterNote', selector: row => row.admitterNote }, 
+    { name: 'Member name', selector: row => row.userId },
+    { name: 'Type of absence', selector: row => row.type }, 
+    { name: 'Period', selector: row => getPeriod(row.startDate, row.endDate) }, 
+    { name: 'Member note', selector: row => row.memberNote },
+    { name: 'Status', selector: row => row.confirmedAt ? 'Confirmed' : row.rejectedAt ? 'Rejected' : 'Requested' },
+    { name: 'Admitter note', selector: row => row.admitterId ? row.admitterNote : '' }, 
 ];
-
+ 
   useEffect(() => {
    
    dispatch(getAbsencesList());
@@ -110,11 +130,9 @@ export function Absences() {
      </Spinner>
       ) : (
         <> 
-        <label>Total absences is : {absences.length}</label>
-        {/* <AbsencesTable data={absences}></AbsencesTable>   */}
+        <label>Total absences is : {absences.length}</label> 
         <DataTable    columns={columns}  data={absences} pagination  />
-        </>
-        //<label>Data is test {absences.length} </label>
+        </> 
       )} 
       </Card.Body>
     </Card>  
