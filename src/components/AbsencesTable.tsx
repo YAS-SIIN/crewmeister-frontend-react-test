@@ -43,7 +43,7 @@ debugger
         <tbody>
         {data === undefined || data.data === undefined || data.data === null || data.data.length === 0 ? ( 
       <tr>
-      <td colSpan={2}> <Alert variant='danger'>Data is empty</Alert> </td>
+      <td colSpan={7}> <Alert variant='danger'>Data is empty</Alert> </td>
   </tr>
       ) : (
         data.data.map((item: Absence) => (

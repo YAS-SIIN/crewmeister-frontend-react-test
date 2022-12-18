@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import absencesService from "../../services/absencesService";
-import { Absence, filData } from "../../utils/models";
+import { filData } from "../../utils/models";
  
   
 const initialState = {
@@ -15,8 +15,8 @@ const initialState = {
  * @param _filData - object of filter data : {stardate, enddate, type}
  * @returns list of absences 
  */
-export const getAbsencesList = createAsyncThunk("getAbsences", async (_filData: filData) => {
-  try { 
+export const getAbsencesList = createAsyncThunk("getAbsences", async (_filData: filData = new filData) => {
+  try {  
     const res = await absencesService.getAbsences(_filData);
     return res;
   } catch (error) {

@@ -1,5 +1,7 @@
 
 import express from "express";
+import { json } from "stream/consumers";
+import { filData } from "./models/models";
  
 const PORT = 8080;
   
@@ -33,14 +35,25 @@ app.listen(PORT, () => {
 app.get("/api/hello", (req, res) => {
   res.send({ message: "Hello" });
 });
- 
-
+  
 /**
  * service method to retrieve absences data
  * @returns absences list
  */
 app.post('/api/getAbsences', (req, res) => {
+  console.log('body is ',req.body);
+    var databody = req.body;
+ 
     data.absences().then((datalist) => {
+      if (databody.stardate !== '' && databody.stardate !== undefined) {
+        datalist = datalist.filter(absence => absence.stardate === databody.stardate);
+      }
+      if (databody.endDate !== '' && databody.endDate !== undefined) {
+        datalist = datalist.filter(absence => absence.endDate === databody.endDate);
+      }
+      if (databody.type !== '' && databody.type !== undefined) {
+        datalist = datalist.filter(absence => absence.type === databody.type);
+      }
         res.send(datalist);
     });
 });

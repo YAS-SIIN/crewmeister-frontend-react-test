@@ -22,5 +22,5 @@ export class Member {
 export class filData { 
   startDate!: string;
   string!: string;
-  filtype!: string; 
+  type!: string; 
 };

@@ -10,6 +10,7 @@ import Row from 'react-bootstrap/Row';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
  
 import AbsencesTable from '../../components/AbsencesTable';
+import { filData } from '../../utils/models';
 import { getAbsencesList, getMembersList } from './absencesSlice';
 
 
@@ -23,8 +24,9 @@ export function Absences() {
 
   useEffect(() => {
     
-   dispatch(getAbsencesList());
-   dispatch(getMembersList());
+   const _filData = new filData;
+   _filData.type="sickness";
+   dispatch(getAbsencesList(_filData));
   }, [dispatch]);
 
   const {
