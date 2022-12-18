@@ -1,3 +1,4 @@
+
 import express from "express";
 //import { members, absences } from "./api/api";
 
@@ -25,6 +26,7 @@ app.use(function(req, res, next) {
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
+
 
 
 //Test Rest API
