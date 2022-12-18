@@ -78,7 +78,7 @@ return `${Difference_In_Days + 1} Day`;
   return (
      <div>
       <Alert variant="warning">
-      <h5>Crewmeister Challange test - programmer : Yasin Asadnezhad</h5>
+      <h5>Crewmeister challange test - programmer : Yasin Asadnezhad</h5>
         </Alert>
 
       <Card>
@@ -131,7 +131,7 @@ return `${Difference_In_Days + 1} Day`;
       ) : (
         <> 
         <label>Total absences is : {absences.length}</label> 
-        <DataTable    columns={columns}  data={absences} pagination  />
+        <DataTable columns={columns}  data={absences} pagination  />
         </> 
       )} 
       </Card.Body>
