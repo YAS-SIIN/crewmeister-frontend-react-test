@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
 import absencesService from "../../services/absencesService";
 import { filData } from "../../utils/models";
  
@@ -19,8 +20,8 @@ export const getAbsencesList = createAsyncThunk("getAbsences", async (_filData: 
   try {  
     const res = await absencesService.getAbsences(_filData);
     return res;
-  } catch (error) {
-    // console.error(error);
+  } catch (ex) {
+    error = true;
   }
 });
 
