@@ -85,6 +85,7 @@ export function Absences() {
           <Form>
             <Row>
               <Col>
+               
                 <label>Start Date :</label>
                 <Form.Control type="date" id="StartDate" placeholder="Start Date" onChange={(e) => { setStartDate(e.target.value); }} />
               </Col>

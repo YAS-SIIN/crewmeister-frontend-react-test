@@ -1,24 +1,50 @@
-// import { shallow } from "enzyme"; 
-// import React from "react";
-// import { Provider } from "react-redux";
-// import configureStore from 'redux-mock-store'
-// import { Store, AnyAction } from "redux";
-// import { Absences } from "./Absences";
 
-  // const initialState = {
-  //   absences: [],
-  //   loading: false,
-  //   error: false,
-  // };
-  // const mockStore = configureStore();
-  // let store: Store<unknown, AnyAction>, wrapper: any;
+import React from "react";
+import { render, screen, cleanup } from '@testing-library/react';
+import { Provider } from "react-redux";
+import { Absences } from "./Absences";
+import { store } from "../../app/store";
   
-  // beforeEach(()=>{
-  //   store = mockStore(initialState);
-  //   wrapper = shallow(<Provider store={store}><Absences/></Provider> )
-  // })
-  // it(' render the Absance', () => {
-  //   expect(wrapper.find(Absences).length).toEqual(1)
-  // });
+afterEach(() => {
+  cleanup();
+})
 
+  
+test('should include start date Input', () => {
+  render(
+     <Provider store={store}>
+       <Absences /> 
+     </Provider>
+   );
+
+   // find 
+   expect(screen.getByPlaceholderText('Start Date')).toBeInTheDocument(); 
+
+ });
+ 
+  
+test('should include end date Input', () => {
+  render(
+     <Provider store={store}>
+       <Absences /> 
+     </Provider>
+   );
+
+   expect(screen.getByPlaceholderText('End Date')).toBeInTheDocument();  
+
+ });
+ 
+ 
+ test('should include absences type combobox', () => {
+  render(
+     <Provider store={store}>
+       <Absences /> 
+     </Provider>
+   ); 
+  expect(screen.getByRole('combobox')).toBeInTheDocument(); 
+
+  expect(screen.getByRole('option', {name: 'vacation'})).toBeInTheDocument();
+  expect(screen.getByRole('option', {name: 'sickness'})).toBeInTheDocument();
+
+ });
  
