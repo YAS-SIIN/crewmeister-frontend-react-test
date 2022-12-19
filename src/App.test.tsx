@@ -14,11 +14,6 @@ test('should have programmer name', () => {
       <App /> 
     </Provider>
   );
-
-  // eslint-disable-next-line testing-library/prefer-screen-queries
-  
+ 
   expect(screen.getByText('Yasin')).toBeInTheDocument();
- // expect(getByText('Yasin')).toBeInTheDocument();
-  //expect(getByText(/Redux Toolkit with TypeScript and React Testing Library example/i)).not.toBeInTheDocument();
-  //expect(true).toBe(true);
 });

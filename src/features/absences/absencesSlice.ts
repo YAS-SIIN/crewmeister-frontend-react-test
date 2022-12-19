@@ -21,6 +21,7 @@ const initialState = {
  */
 export const getAbsencesList = createAsyncThunk("getAbsences", async (_filData: filData = new filData()) => {
 
+    //call getAbsences service method
     const res = await absencesService.getAbsences(_filData);
     return res;
 });

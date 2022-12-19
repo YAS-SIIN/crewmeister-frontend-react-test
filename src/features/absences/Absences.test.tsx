@@ -16,8 +16,7 @@ test('should include start date Input', () => {
        <Absences /> 
      </Provider>
    );
-
-   // find 
+ 
    expect(screen.getByPlaceholderText('Start Date')).toBeInTheDocument(); 
 
  });

@@ -2,12 +2,13 @@ import { filData } from "../utils/models";
 
  
 
-/**
- * call getAbsences method from service to retrieve list of absences 
+/** 
+ * call getAbsences Rest Api from back-end server to retrieve list of absences  
  * @param _filData - object of filter data : {stardate, enddate, type}
  * @returns list of absences 
  */
 const getAbsences = async (_filData: filData = new filData()) => {
+  //call getAbsences Rest API from server
   const response = await fetch("http://localhost:8080/Api/getAbsences", {
     method: 'POST',
     headers: {
@@ -20,8 +21,8 @@ const getAbsences = async (_filData: filData = new filData()) => {
 };
   
 /**
- * call getAbsences method from service to retrieve list of absences 
- * @returns list of absences 
+ * call getMembers Rest Api from back-end server to retrieve list of members 
+ * @returns list of Members 
  */
 const getMembers = async () => {
   const response = await fetch("http://localhost:8080/Api/getMembers", {
@@ -35,8 +36,8 @@ const getMembers = async () => {
 };
   
 /**
- * call getMember method from service to retrieve member
- * @param id - id of member
+ * call getMember Rest Api from back-end server to retrieve member by userId
+ * @param id - userId of member
  * @returns member 
  */
 const getMember = async (id: Number) => {

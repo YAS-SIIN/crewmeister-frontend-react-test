@@ -100,7 +100,7 @@ app.get('/api/getAbsence/:id', (req, res) => {
 
 /**
  * service method to retrieve a record of member
- * @param id - id of member
+ * @param id - userId of member
  * @type Number
  * @returns member
  */
