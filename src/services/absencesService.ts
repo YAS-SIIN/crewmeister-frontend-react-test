@@ -7,7 +7,7 @@ import { filData } from "../utils/models";
  * @param _filData - object of filter data : {stardate, enddate, type}
  * @returns list of absences 
  */
-const getAbsences = async (_filData: filData = new filData) => {
+const getAbsences = async (_filData: filData = new filData()) => {
   const response = await fetch("http://localhost:8080/Api/getAbsences", {
     method: 'POST',
     headers: {

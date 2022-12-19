@@ -1,28 +1,24 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
 import absencesService from "../../services/absencesService";
 import { filData } from "../../utils/models";
- 
-  
+
+
 const initialState = {
   absences: [],
   absencesContainer: [],
   loading: false,
   error: false,
 };
- 
+
 /**
  * Thunk to get absences list in rudux
  * @param _filData - object of filter data : {stardate, enddate, type}
  * @returns list of absences 
  */
-export const getAbsencesList = createAsyncThunk("getAbsences", async (_filData: filData = new filData) => {
-  try {  
+export const getAbsencesList = createAsyncThunk("getAbsences", async (_filData: filData = new filData()) => {
+
     const res = await absencesService.getAbsences(_filData);
     return res;
-  } catch (ex) {
-    error = true;
-  }
 });
 
 /**
@@ -32,17 +28,17 @@ export const getAbsencesList = createAsyncThunk("getAbsences", async (_filData: 
 const absencesSlice = createSlice({
   name: "absencesList",
   initialState,
-  reducers: {}, 
+  reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getAbsencesList.pending, (state, action) => { 
+    builder.addCase(getAbsencesList.pending, (state, action) => {
       state.loading = true;
     });
-    builder.addCase(getAbsencesList.fulfilled, (state, action) => { 
+    builder.addCase(getAbsencesList.fulfilled, (state, action) => {
       state.loading = false;
       state.absencesContainer = action.payload;
       state.absences = action.payload;
     });
-    builder.addCase(getAbsencesList.rejected, (state, action) => { 
+    builder.addCase(getAbsencesList.rejected, (state, action) => {
       state.error = true;
     });
   },
