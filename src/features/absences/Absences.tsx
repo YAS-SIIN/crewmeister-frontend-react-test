@@ -12,7 +12,10 @@ import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { filData } from '../../utils/models';
 import { getAbsencesList } from './absencesSlice';
 
-
+/**
+ * Absences page with data
+ * @returns show list of absences 
+ */
 export function Absences() {
 
   const dispatch = useAppDispatch();
@@ -74,10 +77,7 @@ export function Absences() {
 
   return (
     <div>
-      <Alert variant="warning">
-        <h5>Crewmeister challange test - programmer : Yasin Asadnezhad</h5>
-      </Alert>
-
+  
       <Card>
         <Card.Header>Filter <i></i></Card.Header>
         <Card.Body>

@@ -3,8 +3,7 @@ import absencesReducer from '../features/absences/absencesSlice';
 
 export const store = configureStore({
   reducer: {
-    absencesReducer: absencesReducer,
-    
+    absencesReducer: absencesReducer, 
   },
 });
 
