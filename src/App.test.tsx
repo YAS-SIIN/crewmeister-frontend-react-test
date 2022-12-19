@@ -15,5 +15,5 @@ test('should have programmer name', () => {
     </Provider>
   );
  
-  expect(screen.getByText('Yasin')).toBeInTheDocument();
+  expect(screen.getByText(/Yasin/)).toBeInTheDocument();
 });
