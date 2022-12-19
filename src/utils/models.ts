@@ -11,6 +11,7 @@ export class Absence {
   startDate: string;
   type: string;
   userId: number;
+  memberName: string;
 };
 export class Member {
   crewId: number;

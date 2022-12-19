@@ -20,7 +20,7 @@ export const getAbsencesList = createAsyncThunk("getAbsences", async (_filData: 
     const res = await absencesService.getAbsences(_filData);
     return res;
   } catch (error) {
-    console.error(error);
+    // console.error(error);
   }
 });
 

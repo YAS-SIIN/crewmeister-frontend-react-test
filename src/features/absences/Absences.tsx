@@ -8,9 +8,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import DataTable from 'react-data-table-component';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
- 
-import AbsencesTable from '../../components/AbsencesTable';
-import absencesService from '../../services/absencesService';
+  
 import { filData, Member } from '../../utils/models';
 import { getAbsencesList } from './absencesSlice';
 
@@ -47,7 +45,7 @@ return `${Difference_In_Days + 1} Day`;
  */
   const filter = () => {
   
-    const _filData = new filData;
+    const _filData = new filData();
     _filData.startDate=startDate;
     _filData.endDate=endDate;
     _filData.type=vacationType;
@@ -55,8 +53,8 @@ return `${Difference_In_Days + 1} Day`;
     dispatch(getAbsencesList(_filData));
   };
 
-  const columns = [
-    { name: 'Member name', selector: row => row.userId },
+  const columns = [ 
+    { name: 'Member name', selector: row => row.memberName },
     { name: 'Type of absence', selector: row => row.type }, 
     { name: 'Period', selector: row => getPeriod(row.startDate, row.endDate) }, 
     { name: 'Member note', selector: row => row.memberNote },
@@ -130,7 +128,7 @@ return `${Difference_In_Days + 1} Day`;
      </Spinner>
       ) : (
         <> 
-        <label>Total absences is : {absences.length}</label> 
+        {absences && (<label>Total absences is: {absences.length}</label> )} 
         <DataTable columns={columns}  data={absences} pagination  />
         </> 
       )} 
