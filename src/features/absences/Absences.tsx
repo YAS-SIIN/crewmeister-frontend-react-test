@@ -58,10 +58,10 @@ export function Absences() {
   const columns = [
     { name: 'Member name', selector: row => row.memberName },
     { name: 'Type of absence', selector: row => row.type },
-    { name: 'Period', selector: row => getPeriod(row.startDate, row.endDate) },
-    { name: 'Member note', selector: row => row.memberNote },
+    { name: 'Period', selector: row => `${row.startDate} - ${row.endDate} | ${getPeriod(row.startDate, row.endDate)}`, wrap: true },
+    { name: 'Member note', selector: row => row.memberNote, wrap: true },
     { name: 'Status', selector: row => row.confirmedAt ? 'Confirmed' : row.rejectedAt ? 'Rejected' : 'Requested' },
-    { name: 'Admitter note', selector: row => row.admitterId ? row.admitterNote : '' },
+    { name: 'Admitter note', selector: row => row.admitterId ? row.admitterNote : '' , wrap: true },
   ];
 
   useEffect(() => {
@@ -126,7 +126,7 @@ export function Absences() {
             <Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner>
           ) : (
             <>
-              {!error && absences && (<><label>Total absences is: {absences.length}</label> <DataTable columns={columns} data={absences} pagination /></>)}
+              {!error && absences && (<><label>Total absences is: {absences.length}</label> <DataTable columns={columns} data={absences} striped pagination /></>)}
 
             </>
           )}
