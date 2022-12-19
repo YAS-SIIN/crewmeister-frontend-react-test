@@ -44,7 +44,7 @@ const absencesSlice = createSlice({
   },
 });
 
-export const { } =
+export const {} =
   absencesSlice.actions;
 
 export default absencesSlice.reducer;

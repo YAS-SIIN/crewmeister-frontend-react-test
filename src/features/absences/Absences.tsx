@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import DataTable from 'react-data-table-component';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 
-import { filData, Member } from '../../utils/models';
+import { filData } from '../../utils/models';
 import { getAbsencesList } from './absencesSlice';
 
 
@@ -19,7 +19,6 @@ export function Absences() {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [vacationType, setVacationType] = useState('');
-  const [members, setMembers] = useState([]);
 
   /**
  * method to get period time
