@@ -40,7 +40,7 @@
     "eject": "react-scripts eject",
     "server": "npx ts-node server",
     "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build",
+    "deploy" : "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -68,5 +68,5 @@
   "transform": {
     "\\.js$": "<rootDir>/node_modules/babel-jest"
   },
-  "homepage": "https://github.com/YAS-SIIN/crewmeister-frontend-react-test",
+  "homepage": "https://github.com/YAS-SIIN/crewmeister-frontend-react-test"
 }
