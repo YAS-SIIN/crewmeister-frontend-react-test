@@ -1,6 +1,6 @@
 # Crewmeister Front-End challange test
 Hello,
-My name is Yasin Asadnezhad and I'm greatful of your taking time to my challange feedback.
+My name is Yasin Asadnezhad and I'm greatful that you have taken your time to give your feedback on my challange.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
 
 ## Available Scripts
@@ -30,21 +30,20 @@ Launches the test runner in the interactive watch mode.\
 Builds the app for production to the `build` folder.\
  
 ## Documantation
-Inside project we have serverside and clientside. 
-Serverside programmed using Node Express which give some REST API
-Clientside programmed using ReactJs and Redux Toolkit
+The project consists of a serverside back-end and a react client.
+The server-side application was programmed using Node Express which exposes a REST Api that the client can use.
+The client-side instance was made with ReactJs and Redux Toolkit.
 
 ##### Inside of server
 
 - **[getAbsences](#http://localhost:8080/api/getAbsences)** service method to retrieve absences data (`POST /api/getAbsences`)
 
-   set input :
+**set input :**
 ```json
     { "startDate": "2020-01-01", "endDate": "2020-12-29", "type": "vacation|sickness" }
 ```
-
-   will output :
-
+**will output :**
+   
 ```json
     [{
       "admitterId": null,
@@ -64,7 +63,7 @@ Clientside programmed using ReactJs and Redux Toolkit
 ```
 - **[getMembers](#http://localhost:8080/api/getMembers)** service method to retrieve members data (`POST /api/getMembers`)
 
-   will output :
+**will output :**
 
 ```json
     [{
@@ -78,7 +77,7 @@ Clientside programmed using ReactJs and Redux Toolkit
 
 - **[getAbsence](#http://localhost:8080/api/getAbsence)** service method to retrieve a record of absence by id (`GET /api/getAbsence/id`)
 
-   will output :
+**will output :**
 
 ```json
     {
@@ -100,7 +99,7 @@ Clientside programmed using ReactJs and Redux Toolkit
 
 - **[getMember](#http://localhost:8080/api/getMember)** service method to retrieve a record of member by id (`GET /api/getMember/id`)
 
-   will output :
+**will output :**
 
 ```json
     {
