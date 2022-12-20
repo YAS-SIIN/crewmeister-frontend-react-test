@@ -18,20 +18,60 @@
  * @property {string} memberName - Member name
  */
 export class Absence {
+  /**
+   * admitterId
+   */
   admitterId: number;
+  /**
+   * Admitter note
+   */
   admitterNote: string;
+  /**
+   * Confirmed date
+   */
   confirmedAt: Date;
+  /**
+   * Created date
+   */
   createdAt: Date;
+  /**
+   * crewId
+   */
   crewId: number;
+  /**
+   * Absenc end date
+   */
   endDate: string;
+  /**
+   * id
+   */
   id: number;
+  /**
+   * Member note
+   */
   memberNote: string;
+  /**
+   * Rejected date
+   */
   rejectedAt: Date;
+  /**
+   * Absenc start date
+   */
   startDate: string;
+  /**
+   * Absenc type {vacation , sickness}
+   */
   type: string;
+  /**
+   * userId
+   */
   userId: number;
+  /**
+   * Member name
+   */
   memberName: string;
 };
+
 
 /**
  * Absence
@@ -39,14 +79,30 @@ export class Absence {
  * @type {object}
  * @property {number} crewId - crewId
  * @property {number} id - id
+ * @property {string} image - Member image
  * @property {string} name - Member name
  * @property {number} userId - userId
  */
 export class Member {
+  /**
+   * crewId
+   */
   crewId: number;
+  /**
+   * id
+   */
   id: number;
+  /**
+   * Member image
+   */
   image: string;
+  /**
+   * Member name
+   */
   name: string;
+  /**
+   * userId
+   */
   userId: number;
 };
 
@@ -60,7 +116,16 @@ export class Member {
  * @property {string} type - Absenc type {vacation , sickness}
  */
 export class filData { 
+  /**
+   * Absenc start date
+   */
   startDate!: string;
+  /**
+   * Absenc end date
+   */
   endDate!: string;
+  /**
+   * Absenc type {vacation , sickness}
+   */
   type!: string; 
 };

@@ -8,8 +8,9 @@ import { filData } from "../utils/models";
  * @returns list of absences 
  */
 const getAbsences = async (_filData: filData = new filData()) => {
+  console.log(process.env.REACT_APP_API_URL);
   //call getAbsences Rest API from server
-  const response = await fetch("http://localhost:8080/Api/getAbsences", {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/Api/getAbsences`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -25,7 +26,7 @@ const getAbsences = async (_filData: filData = new filData()) => {
  * @returns list of Members 
  */
 const getMembers = async () => {
-  const response = await fetch("http://localhost:8080/Api/getMembers", {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/Api/getMembers`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -41,7 +42,7 @@ const getMembers = async () => {
  * @returns member 
  */
 const getMember = async (id: Number) => {
-  const response = await fetch(`http://localhost:8080/Api/getMember/${id}`);
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/Api/getMember/${id}`);
     return response.json();
 };
  

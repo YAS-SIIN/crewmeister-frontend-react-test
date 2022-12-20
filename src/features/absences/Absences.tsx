@@ -61,7 +61,7 @@ export function Absences() {
     { name: 'Period', selector: row => `${row.startDate} - ${row.endDate} | ${getPeriod(row.startDate, row.endDate)}`, wrap: true },
     { name: 'Member note', selector: row => row.memberNote, wrap: true },
     { name: 'Status', selector: row => row.confirmedAt ? 'Confirmed' : row.rejectedAt ? 'Rejected' : 'Requested' },
-    { name: 'Admitter note', selector: row => row.admitterId ? row.admitterNote : '' , wrap: true },
+    { name: 'Admitter note', selector: row => row.admitterId ? row.admitterNote : '', wrap: true },
   ];
 
   useEffect(() => {
@@ -77,7 +77,7 @@ export function Absences() {
 
   return (
     <div>
-  
+
       <Card>
         <Card.Header>Filter <i></i></Card.Header>
         <Card.Body>
@@ -85,7 +85,7 @@ export function Absences() {
           <Form>
             <Row>
               <Col>
-               
+
                 <label>Start Date :</label>
                 <Form.Control type="date" id="StartDate" placeholder="Start Date" onChange={(e) => { setStartDate(e.target.value); }} />
               </Col>
