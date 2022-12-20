@@ -68,4 +68,5 @@
   "transform": {
     "\\.js$": "<rootDir>/node_modules/babel-jest"
   },
+  "homepage": "https://github.com/YAS-SIIN/crewmeister-frontend-react-test",
 }
