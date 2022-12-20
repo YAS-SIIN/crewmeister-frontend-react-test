@@ -121,4 +121,4 @@ Clientside programmed using ReactJs and Redux Toolkit
      - absence : absence data
 - After getting data, data is shown in Datatable
 
- ![Screen Shot](/public/images/Screenshot.png)
+ ![Screen Shot](/public/Screenshot.png)
