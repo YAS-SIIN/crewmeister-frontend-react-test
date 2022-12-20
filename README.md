@@ -1,56 +1,115 @@
-# Getting Started with Create React App
-
+# Crewmeister Front-End challange test
+Hello,
+My name is Yasin Asadnezhad and I'm greatful of your taking time to my challange feedback.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
-
+##### `yarn` 
+Run yarn to install the dependencies in package.json 
+ 
+##### `yarn start` 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+ 
 
-
-### `yarn server`
-
+##### `yarn server` 
 Runs the REST Api server.\
 Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
-
 For example you can test this link 
 [http://localhost:8080/api/getAbsences](http://localhost:8080/api/getAbsences)
 
-
-### `yarn test`
-
+##### `yarn test` 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
-
+##### `yarn build`
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ 
+## Documantation
+Inside project we have serverside and clientside. 
+Serverside programmed using Node Express which give some REST API
+Clientside programmed using ReactJs and Redux Toolkit
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##### Inside of server
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **[getAbsences](#http://localhost:8080/api/getAbsences)** service method to retrieve absences data (`POST /api/getAbsences`)
 
-### `yarn eject`
+   set input :
+```json
+    { "startDate": "2020-01-01", "endDate": "2020-12-29", "type": "vacation"|"sickness" }
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   will output :
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```json
+    [{
+      "admitterId": null,
+      "admitterNote": null,
+      "confirmedAt": null,
+      "createdAt": null,
+      "crewId": null,
+      "endDate": null,
+      "id": null,
+      "memberNote": null,
+      "rejectedAt": null,
+      "startDate": null,
+      "type": null,
+      "userId": null,
+      "memberName": null
+    }]
+```
+- **[getMembers](#http://localhost:8080/api/getMembers)** service method to retrieve members data (`POST /api/getMembers`)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   will output :
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```json
+    [{
+      "crewId": null,
+      "id": null,
+      "image": null,
+      "name": null,
+      "userId": null
+    }]
+```
 
-## Learn More
+- **[getAbsence](#http://localhost:8080/api/getAbsence)** service method to retrieve a record of absence by id (`GET /api/getAbsence/id`)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   will output :
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```json
+    {
+      "admitterId": null,
+      "admitterNote": null,
+      "confirmedAt": null,
+      "createdAt": null,
+      "crewId": null,
+      "endDate": null,
+      "id": null,
+      "memberNote": null,
+      "rejectedAt": null,
+      "startDate": null,
+      "type": null,
+      "userId": null,
+      "memberName": null
+    }
+``` 
+
+- **[getMember](#http://localhost:8080/api/getMember)** service method to retrieve a record of member by id (`GET /api/getMember/id`)
+
+   will output :
+
+```json
+    {
+      "crewId": null,
+      "id": null,
+      "image": null,
+      "name": null,
+      "userId": null
+    }
+```
+
+
