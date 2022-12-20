@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/YAS-SIIN/crewmeister-frontend-react-test/static/css/main.9cd60641.css",
+    "main.js": "/YAS-SIIN/crewmeister-frontend-react-test/static/js/main.fe7f6856.js",
+    "static/js/787.020fd322.chunk.js": "/YAS-SIIN/crewmeister-frontend-react-test/static/js/787.020fd322.chunk.js",
+    "index.html": "/YAS-SIIN/crewmeister-frontend-react-test/index.html",
+    "main.9cd60641.css.map": "/YAS-SIIN/crewmeister-frontend-react-test/static/css/main.9cd60641.css.map",
+    "main.fe7f6856.js.map": "/YAS-SIIN/crewmeister-frontend-react-test/static/js/main.fe7f6856.js.map",
+    "787.020fd322.chunk.js.map": "/YAS-SIIN/crewmeister-frontend-react-test/static/js/787.020fd322.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9cd60641.css",
+    "static/js/main.fe7f6856.js"
+  ]
+}
