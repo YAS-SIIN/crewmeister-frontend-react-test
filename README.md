@@ -1,5 +1,5 @@
 # Task Manager
-
+A small application using react and node js to manage tasks.
 
 ## Available Scripts
 
